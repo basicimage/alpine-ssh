@@ -7,7 +7,7 @@ docker.build:
 
 .PHONY: docker.push
 docker.push:
-	# docker push ${image}
+	docker push ${image}
 	docker tag ${image} ${image}:$(tag)
 	docker push ${image}:$(tag)
 
