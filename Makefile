@@ -7,10 +7,5 @@ docker.build:
 
 .PHONY: docker.push
 docker.push:
-	docker push ${image}
-	docker tag ${image} ${image}:$(tag)
-	docker push ${image}:$(tag)
-
-
-.PHONY: docker.all
-docker.all:docker.build docker.push
+	docker buildx build --platform linux/amd64,linux/arm64 --no-cache --push -t ${image} .
+	docker buildx build --platform linux/amd64,linux/arm64 --no-cache --push -t ${image}:${tag} .

@@ -1,12 +1,13 @@
 ## 说明
-alpine 版本的ssh服务
-```bash
+alpine 版本的ssh服务,`tzdata`用于设置时区
+```
 openssh tzdata bash
 ```
 默认账号密码 `root:123456`
 ## docker build&push
+这里使用了多平台构建并推送到hub，可使用`make docker.build`构建到本地
 ```bash
-make docker.all
+make docker.push
 ```
 ## 启动
 ```bash
